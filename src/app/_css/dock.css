@@ -1,0 +1,33 @@
+.dock-container {
+    width: 450px;
+    height: 70px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
+    margin: 0 auto;
+    background: #f7f7f7;
+    border-radius: 10px 10px 0 0;
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,.3);
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,.3);
+}
+
+.dock-list-container {
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    display: block;
+    text-align: center;
+}
+
+.dock-icon {
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.dock-introduce-icon {
+    margin-left: 0px;
+}
