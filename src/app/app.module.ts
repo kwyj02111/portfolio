@@ -5,13 +5,15 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './_components/index';
 import { DockComponent } from './_components/index';
+import { HomeComponent } from './_components/index';
 
 
 @NgModule({
     declarations: [
         AppComponent,
         HeaderComponent,
-        DockComponent
+        DockComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule
