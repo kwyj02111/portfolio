@@ -17,6 +17,43 @@
     right: 0;
 }
 
+.container-header {
+    width: 100%;
+    height: 22px;
+    background: #dddbde;
+    border-radius: 10px 10px 0px 0px;
+    padding: 0px 10px;
+    border-bottom: 1px solid #d0ced0;
+}
+
+.container-header-btn {
+    float: left;
+    width: 12px;
+    height: 12px;
+    margin-left: 9px;
+    border-radius: 50%;
+    margin-top: 5px;
+}
+
+.container-header-close-btn {
+    background: #fc6159;
+    margin-left: 0px;
+}
+
+.container-header-hide-btn {
+    background: #fdbd2e;
+}
+
+.container-header-fullscreen-btn {
+    background: #27cb40;
+}
+
 .pointer {
     cursor: pointer;
+}
+
+.text-cut {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

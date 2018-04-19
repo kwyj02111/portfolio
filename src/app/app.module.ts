@@ -1,11 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+/*service*/
+import { AppStateService } from './_services/index';
+
 /*component*/
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './_components/index';
 import { DockComponent } from './_components/index';
 import { HomeComponent } from './_components/index';
+import { ProjectComponent } from './_components/index';
 
 
 @NgModule({
@@ -13,12 +17,14 @@ import { HomeComponent } from './_components/index';
         AppComponent,
         HeaderComponent,
         DockComponent,
-        HomeComponent
+        HomeComponent,
+        ProjectComponent,
     ],
     imports: [
         BrowserModule
     ],
     providers: [
+        AppStateService,
     ],
     bootstrap: [
         AppComponent

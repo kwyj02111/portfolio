@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+/*service*/
+import { AppStateService } from './_services/index';
 
 @Component({
     selector: 'app-root',
@@ -7,6 +10,20 @@ import { Component } from '@angular/core';
         './_css/common.css'
     ],
 })
-export class AppComponent {
-    title = 'app';
+export class AppComponent implements OnInit {
+
+    public _mainApp : any;
+
+    constructor(
+        private _appState : AppStateService,
+    ) { }
+
+    ngOnInit() {
+        this.appState();
+    }
+
+    appState(){
+        this._mainApp = this._appState.getAppState();
+        return;
+    }
 }

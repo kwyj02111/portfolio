@@ -3,37 +3,51 @@
     <!-- <div class="home-background"></div> -->
 
     <ul class="home-icon-container">
-        <div class="home-icon-area pointer">
+        <div class="home-icon-area pointer"
+            (click)="openApp('introduce')"
+        >
             <img class="home-introduce-icon home-icon" src="/assets/introduce-icon.png" />
             <div class="home-icon-text">Introduce</div>
         </div>
 
-        <div class="home-icon-area pointer">
-            <img class="home-project-icon home-icon" src="/assets/project-icon.png" />
+        <div class="home-icon-area pointer"
+            (click)="openApp('workExperience')"
+        >
+            <img class="home-project-icon home-icon" src="/assets/work-experience-icon.png" />
             <div class="home-icon-text">Work Experience</div>
         </div>
 
-        <div class="home-icon-area pointer">
+        <div class="home-icon-area pointer"
+            (click)="openApp('project')"
+        >
             <img class="home-project-icon home-icon" src="/assets/project-icon.png" />
             <div class="home-icon-text">Project</div>
         </div>
 
-        <div class="home-icon-area pointer">
+        <div class="home-icon-area pointer"
+            (click)="openApp('resume')"
+        >
             <img class="home-resume-icon home-icon" src="/assets/resume-icon.png" />
             <div class="home-icon-text">Resume</div>
         </div>
 
-        <div class="home-icon-area pointer">
+        <div class="home-icon-area pointer"
+            (click)="openApp('terminal')"
+        >
             <img class="home-terminal-icon home-icon" src="/assets/terminal-icon.png" />
             <div class="home-icon-text">Terminal</div>
         </div>
 
-        <div class="home-icon-area pointer">
+        <div class="home-icon-area pointer"
+            (click)="clickGithubApp()"
+        >
             <img class="home-github-icon home-icon" src="/assets/github-icon.svg" />
             <div class="home-icon-text">Github</div>
         </div>
 
-        <div class="home-icon-area pointer">
+        <div class="home-icon-area pointer"
+            (click)="openApp('contact')"
+        >
             <img class="home-contacts-icon home-icon" src="/assets/contacts-icon.png" />
             <div class="home-icon-text">Contact Address</div>
         </div>

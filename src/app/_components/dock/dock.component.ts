@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+/*service*/
+import { AppStateService } from '../../_services/index';
+
 @Component({
     selector: 'dock',
     templateUrl: './dock.component.html',
@@ -11,9 +14,21 @@ import { Component, OnInit } from '@angular/core';
 
 export class DockComponent implements OnInit {
 
-    constructor() { }
+    constructor(
+        private _appState : AppStateService,
+    ) { }
 
-    ngOnInit() {
+    ngOnInit(){
+    }
+
+    // App open
+    openApp(app : any){
+        if(typeof app === 'undefined'){
+            return;
+        }
+
+        this._appState.updateAppState(app, 'open');
+        return;
     }
 
 }

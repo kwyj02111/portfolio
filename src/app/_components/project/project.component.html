@@ -1,0 +1,75 @@
+<section class="projectContainer" class="project-container">
+
+    <div class="container-header">
+        <div class='container-header-close-btn container-header-btn pointer'
+            (click)="closeApp()"
+        ></div>
+        <div class='container-header-hide-btn container-header-btn pointer'></div>
+        <div class='container-header-fullscreen-btn container-header-btn pointer'></div>
+    </div>
+
+    <div class="project-contents">
+        <ul class="project-nav">
+            <li class="project-nav-item pointer"
+                *ngFor="let item of _project.data.list"
+                [ngClass]="_project.elem.selected.id === item.id ? 'selected' : ''"
+                (click)="selectedProjectItem(item)"
+            >
+                <div class='project-nav-subject text-cut'>
+                    {{item.subject}}
+                </div>
+
+                <div class="project-nav-date text-cut">
+                    {{item.date}}
+                </div>
+            </li>
+        </ul>
+
+        <div class="project-detail-area">
+            <div class="project-detail-name">
+                {{_project.elem.selected.subject}}
+            </div>
+
+            <div class="project-detail-item project-detail-item-date">
+                <div class="project-detail-title">
+                    Date
+                </div>
+
+                <div class="project-detail-value">
+                    {{_project.elem.selected.date}}
+                </div>
+            </div>
+
+            <div class="project-detail-item">
+                <div class="project-detail-title">
+                    Position
+                </div>
+
+                <div class="project-detail-value">
+                    {{_project.elem.selected.position}}
+                </div>
+            </div>
+
+            <div class="project-detail-item">
+                <div class="project-detail-title">
+                    Language
+                </div>
+
+                <div class="project-detail-value">
+                    {{_project.elem.selected.language}}
+                </div>
+            </div>
+
+            <div class="project-detail-item">
+                <div class="project-detail-title">
+                    Detail
+                </div>
+
+                <div class="project-detail-value-text">
+                    {{_project.elem.selected.content}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

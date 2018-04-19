@@ -1,0 +1,117 @@
+.project-container {
+    width: 600px;
+    height: 400px;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    border: 1px solid #dcdcda;
+    border-radius: 10px;
+    background: #fcfcfa;
+}
+
+.project-contents {
+    width: 100%;
+    height: calc(100% - 22px);
+    border-radius: 0px 0px 10px 10px;
+}
+
+.project-nav {
+    width: 30%;
+    height: 100%;
+    float: left;
+    border-right: 2px solid #f3f3f1;
+}
+
+.project-nav-item {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #f3f3f1;
+    padding: 8px 8px;
+}
+
+.project-nav-item.selected {
+    background: #dfdfdd;
+}
+
+.project-nav-subject {
+    width: 100%;
+    height: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+    line-height: 20px;
+    color: #2b2b2b;
+}
+
+.project-nav-date {
+    width: 100%;
+    height: 14px;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: left;
+    line-height: 14px;
+    color: #5e5e5e;
+}
+
+.project-detail-area {
+    width: 70%;
+    height: 100%;
+    float: right;
+    padding: 15px 10px;
+    overflow-y: auto;
+}
+
+.project-detail-name {
+    width: 100%;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+    color: #2b2b2b;
+    line-height: 1.4;
+}
+
+.project-detail-item {
+    width: 100%;
+    min-height: 18px;
+    height: auto;
+    margin-top: 8px;
+    float: left;
+}
+
+.project-detail-item-date {
+    margin-top: 13px;
+}
+
+.project-detail-title {
+    width: 50px;
+    height: 18px;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: right;
+    color: #5e5e5e;
+    line-height: 18px;
+    float: left;
+    margin-right: 10px;
+}
+
+.project-detail-value {
+    float: left;
+    width: calc(100% - 60px);
+    min-height: 18px;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: left;
+    color: #2b2b2b;
+    line-height: 1.4;
+}
+
+.project-detail-value-text {
+    float: left;
+    width: calc(100% - 60px);
+    min-height: 18px;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: left;
+    color: #2b2b2b;
+    line-height: 1.8;
+}
