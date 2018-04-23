@@ -1,0 +1,110 @@
+<section class="workExperienceContainer" class="work-experience-container">
+
+    <div class="container-header">
+        <div class='container-header-close-btn container-header-btn pointer'
+            (click)="closeApp()"
+        ></div>
+        <div class='container-header-hide-btn container-header-btn pointer'></div>
+        <div class='container-header-fullscreen-btn container-header-btn pointer'></div>
+    </div>
+
+    <div class="work-experience-contents">
+
+        <div class="work-experience-contents-wrap">
+            <ul class="work-experience-nav">
+                <li class="work-experience-nav-item pointer"
+                    *ngFor="let company of _workExperience.data.list"
+                    [ngClass]="_workExperience.elem.selected.id === company.id ? 'selected' : ''"
+                    (click)="selectedCompanyItem(company)"
+                >
+                    <div class="work-experience-nav-item-icon"></div>
+                    <div class="work-experience-nav-name text-cut">
+                        {{company.name}}
+                    </div>
+                </li>
+            </ul>
+
+
+            <div class="work-experience-detail-container">
+                <div class="work-experience-detail-area"
+                    *ngIf="_workExperience.elem.selected.id > 0"
+                >
+                    <div class='work-experience-detail-name'>
+                        {{_workExperience.elem.selected.name}}
+                    </div>
+
+
+                    <div class="work-experience-detail-item">
+                        <div class="work-experience-detail-title">
+                            Date
+                        </div>
+
+                        <div class="work-experience-detail-value">
+                            {{_workExperience.elem.selected.date}}
+                        </div>
+                    </div>
+
+                    <div class="work-experience-detail-item">
+                        <div class="work-experience-detail-title">
+                            Position
+                        </div>
+
+                        <div class="work-experience-detail-value">
+                           {{_workExperience.elem.selected.position}}
+                        </div>
+                    </div>
+
+                    <div class="work-experience-detail-item">
+                        <div class="work-experience-detail-title">
+                            Location
+                        </div>
+
+                        <div class="work-experience-detail-value">
+                            {{_workExperience.elem.selected.location}}
+                        </div>
+                    </div>
+
+                    <div class="work-experience-detail-item">
+                        <div class="work-experience-detail-title">
+                            Detail
+                        </div>
+
+                        <div class="work-experience-detail-value-text">
+                            {{_workExperience.elem.selected.content}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="work-experience-route-area">
+            <div class="work-experience-route-item-box">
+                <div class="work-experience-route-home work-experience-route-icon"></div>
+                <div class="work-experience-route-text">Home</div>
+            </div>
+
+            <div class="work-experience-route-right">
+                &gt;
+            </div>
+
+            <div class="work-experience-route-item-box">
+                <div class="work-experience-route-document work-experience-route-icon"></div>
+                <div class="work-experience-route-text">WorkExperience</div>
+            </div>
+
+            <div class="work-experience-route-right"
+                *ngIf="_workExperience.elem.selected.id > 0"
+            >
+                &gt;
+            </div>
+
+            <div class="work-experience-route-item-box"
+                *ngIf="_workExperience.elem.selected.id > 0"
+            >
+                <div class="work-experience-route-company work-experience-route-icon"></div>
+                <div class="work-experience-route-text">{{_workExperience.elem.selected.name}}</div>
+            </div>
+        </div>
+    </div>
+
+</section>
