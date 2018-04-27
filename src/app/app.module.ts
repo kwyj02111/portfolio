@@ -11,6 +11,7 @@ import { DockComponent } from './_components/index';
 import { HomeComponent } from './_components/index';
 import { ProjectComponent } from './_components/index';
 import { WorkExperienceComponent } from './_components/index';
+import { IntroduceComponent } from './_components/index';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { WorkExperienceComponent } from './_components/index';
         HomeComponent,
         ProjectComponent,
         WorkExperienceComponent,
+        IntroduceComponent,
     ],
     imports: [
         BrowserModule

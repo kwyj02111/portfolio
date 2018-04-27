@@ -1,0 +1,61 @@
+<section class="introduceContainer" class="introduce-container">
+
+    <div class="container-header">
+        <div class='container-header-close-btn container-header-btn pointer'
+            (click)="closeApp()"
+        ></div>
+        <div class='container-header-hide-btn container-header-btn pointer'></div>
+        <div class='container-header-fullscreen-btn container-header-btn pointer'></div>
+    </div>
+
+    <div class="introduce-contents">
+        <div class="introduce-name-area">
+            <div class="introduce-name">KWON EUIJUNG</div>
+            <div class="introduce-position text-cut">Front-end Developer</div>
+        </div>
+
+        <div class="section-line"></div>
+
+        <div class="intrduce-detail-area intrduce-detail-detail-area">
+            <div class="introduce-detail-area-title">
+                Profile
+            </div>
+
+            <ul class="introduce-detail-area-content">
+                <li class="introduce-profile-item-area"
+                    *ngFor="let item of _introduce.data.profile"
+                >
+                    <div class="introduce-profile-title">
+                        {{item.title}}
+                    </div>
+                    <div class="introduce-profile-value">
+                        {{item.value}}
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="intrduce-detail-area">
+            <div class="introduce-detail-area-title">
+                Skills
+            </div>
+
+            <div class="introduce-skill-image-area">
+                <img class="introduce-skill-image" src="/assets/skill-logo/html-css-js.png" />
+                <img class="introduce-skill-image" src="/assets/skill-logo/angular.png" />
+                <img class="introduce-skill-image" src="/assets/skill-logo/jquery.png" />
+                <img class="introduce-skill-image" src="/assets/skill-logo/git.png" />
+                <img class="introduce-skill-image" src="/assets/skill-logo/d3.png" />
+                <img class="introduce-skill-image" src="/assets/skill-logo/nodejs.png" />
+                <img class="introduce-skill-image mysql" src="/assets/skill-logo/mysql.png" />
+                <img class="introduce-skill-image react" src="/assets/skill-logo/react.svg" />
+            </div>
+
+            <div id="introduceSkillGraph" class="introduce-skill-graph">
+                <svg id="skillChart"></svg>
+            </div>
+        </div>
+
+    </div>
+
+</section>

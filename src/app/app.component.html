@@ -2,6 +2,7 @@
 <section  class="background-image"></section>
 <section class="home-container">
     <home></home>
+    <introduce *ngIf="_mainApp.app.introduce"></introduce>
     <workExperience *ngIf="_mainApp.app.workExperience"></workExperience>
     <project *ngIf="_mainApp.app.project"></project>
 </section>

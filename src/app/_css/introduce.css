@@ -1,0 +1,141 @@
+.introduce-container {
+    width: 80%;
+    height: 70%;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    /*left: 0px;*/
+    border: 1px solid #dcdcda;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.introduce-contents {
+    width: 100%;
+    height: calc(100% - 22px);
+    border-radius: 0px 0px 10px 10px;
+    padding: 20px 15px;
+    overflow-y: auto;
+}
+
+.section-line {
+    width: 100%;
+    height: 1px;
+    background: #d2d2d2;
+}
+
+.introduce-name-area {
+    width: 100%;
+    height: 26px;
+    margin-bottom: 8px;
+}
+
+.introduce-name {
+    width: auto;
+    height: 26px;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: left;
+    line-height: 24px;
+    color: #2b2b2b;
+    float: left;
+}
+
+.introduce-position {
+    width: auto;
+    height: 18px;
+    font-size: 14px;
+    text-align: left;
+    line-height: 18px;
+    color: #5e5e5e;
+    float: left;
+    margin-top: 8px;
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+.intrduce-detail-area {
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+}
+
+.intrduce-detail-detail-area{
+    margin-top: 20px;
+}
+
+.introduce-detail-area-title {
+    width: 100%;
+    height: 15px;
+    font-size: 14px;
+    text-align: left;
+    line-height: 15px;
+    color: #e52646;
+    margin-bottom: 13px;
+}
+
+.introduce-detail-area-content {
+    width: 100%;
+    height: auto;
+}
+
+.introduce-profile-item-area {
+    width: 100%;
+    height: 14px;
+    margin-top: 10px;
+}
+
+.introduce-profile-item-area:first-child {
+    margin-top: 0px;
+}
+
+.introduce-profile-title {
+    width: 50px;
+    height: 14px;
+    font-size: 13px;
+    text-align: left;
+    color: #d2d2d2;
+    line-height: 13px;
+    float: left;
+    margin-right: 8px;
+}
+
+.introduce-profile-value {
+    width: calc(100% - 58px);
+    height: 14px;
+    font-size: 13px;
+    text-align: left;
+    line-height: 13px;
+    color: #2b2b2b;
+    float: left;
+}
+
+.introduce-skill-image-area {
+    width: 100%;
+    min-height: 55px;
+    float: left;
+}
+
+.introduce-skill-image {
+    width: auto;
+    height: 55px;
+    float: left;
+    margin-left: 24px;
+    margin-bottom: 15px;
+}
+
+.introduce-skill-image.react,
+.introduce-skill-image.mysql {
+    height: 45px;
+}
+
+.introduce-skill-image:first-child {
+    margin-left: 0px;
+}
+
+.introduce-skill-graph {
+    width: 500px;
+    height: 300px;
+    margin-top: 15px;
+    float: left;
+}
