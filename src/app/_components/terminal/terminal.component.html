@@ -1,0 +1,62 @@
+<section class="terminalContainer" class="terminal-container">
+
+    <div class="container-header">
+        <div class="container-header-close-btn container-header-btn pointer"
+            (click)="closeApp()"
+        ></div>
+        <div class="container-header-hide-btn container-header-btn pointer"></div>
+        <div class="container-header-fullscreen-btn container-header-btn pointer"></div>
+    </div>
+
+    <div class="terminal-contents">
+        <div class="terminal-welcome-text">
+            Login : {{_terminal.data.nowTime}} on ttys001
+        </div>
+        <div class="terminal-welcome-text last-text">
+            Type "help" for help
+        </div>
+
+        <div class="terminal-input-area">
+            <div class="terminal-input-nav" id="terminalInputNav0">KWON-EUIJUNG:~/desktop$</div>
+
+            <textarea
+                id="terminalInput0"
+                class="terminal-input"
+                rows="1"
+                [ngStyle]="adjustTextareaStyle(0)"
+                (keydown)="keyDownTerminal($event, 0)"
+            ></textarea>
+        </div>
+
+
+        <div class="terminal-search-result-area"
+            *ngFor="let item of _terminal.search; let idx=index;"
+        >
+            <div class="terminal-search-result"
+                *ngFor="let result of item.result"
+                [ngClass]="result.folder ? 'folder' : ''"
+                [innerText]="result.contents !== undefined ? result.contents : ''"
+            >
+            </div>
+
+            <div class="terminal-input-area">
+                <div
+                    class="terminal-input-nav"
+                    [attr.id]="'terminalInputNav' + (idx+1)"
+                >
+                    KWON-EUIJUNG:~{{item.depth}}$
+                </div>
+
+                <textarea
+                    [attr.id]="'terminalInput' + (idx+1)"
+                    class="terminal-input"
+                    rows="1"
+                    [ngStyle]="adjustTextareaStyle(idx+1)"
+                    (keydown)="keyDownTerminal($event, idx+1)"
+                ></textarea>
+            </div>
+        </div>
+
+    </div>
+
+</section>

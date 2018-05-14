@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 /*service*/
 import { AppStateService } from './_services/index';
@@ -12,7 +13,7 @@ import { HomeComponent } from './_components/index';
 import { ProjectComponent } from './_components/index';
 import { WorkExperienceComponent } from './_components/index';
 import { IntroduceComponent } from './_components/index';
-
+import { TerminalComponent } from './_components/index';
 
 @NgModule({
     declarations: [
@@ -23,9 +24,11 @@ import { IntroduceComponent } from './_components/index';
         ProjectComponent,
         WorkExperienceComponent,
         IntroduceComponent,
+        TerminalComponent,
     ],
     imports: [
-        BrowserModule
+        BrowserModule,
+        FormsModule,
     ],
     providers: [
         AppStateService,

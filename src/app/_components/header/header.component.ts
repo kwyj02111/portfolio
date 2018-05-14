@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit(){
         this.registerTwoWayBind();
+        this.setClockInterval();
     }
 
     registerTwoWayBind(){
@@ -28,6 +29,12 @@ export class HeaderComponent implements OnInit {
         };
 
         return;
+    }
+
+    setClockInterval(){
+        setInterval(() => {
+           this.getClock()
+        }, 1000);
     }
 
     getClock(){

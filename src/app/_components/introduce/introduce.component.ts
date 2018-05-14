@@ -138,7 +138,7 @@ export class IntroduceComponent implements OnInit {
                     .attr('y', (dd) => { return yScale(dd.skill); })
                     .attr('rx', halfChartHeight)
                     .attr('ry', halfChartHeight)
-                    .style('fill', '#e52646');
+                    .style('fill', '#FB5959');
 
         return;
     }

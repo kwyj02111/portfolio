@@ -4,3 +4,4 @@ export * from './home/home.component';
 export * from './introduce/introduce.component';
 export * from './work-experience/work-experience.component';
 export * from './project/project.component';
+export * from './terminal/terminal.component';
