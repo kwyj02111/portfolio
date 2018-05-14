@@ -1,0 +1,31 @@
+<section class="contactContainer" class="contact-container">
+
+    <div class="container-header">
+        <div class="container-header-close-btn container-header-btn pointer"
+            (click)="closeApp()"
+        ></div>
+        <div class="container-header-hide-btn container-header-btn pointer"></div>
+        <div class="container-header-fullscreen-btn container-header-btn pointer"></div>
+    </div>
+
+    <div class="contact-contents">
+        <div class="contact-name-area">
+            <img class="contact-my-image" src="/assets/euijung.jpg" />
+            <div class="contact-name">KWON EUIJUNG</div>
+            <div class="contact-position text-cut">Front-end Developer</div>
+        </div>
+
+        <ul class="contact-address-area">
+            <li class="contact-address-item-area"
+                *ngFor="let item of _contact.data"
+            >
+                <div class="contact-icon-wrap">
+                    <img class="contact-icon" [src]="item.src" />
+                </div>
+
+                <div class="contact-address-text">{{item.value}}</div>
+            </li>
+        </ul>
+    </div>
+
+</section>

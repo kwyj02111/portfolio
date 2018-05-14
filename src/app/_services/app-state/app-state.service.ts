@@ -24,7 +24,7 @@ export class AppStateService {
                 'project' : false,
                 'resume' : false,
                 'terminal' : false,
-                'contect' : false,
+                'contact' : false,
             },
             'appArray' : [],
         };

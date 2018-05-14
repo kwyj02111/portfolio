@@ -14,6 +14,7 @@ import { ProjectComponent } from './_components/index';
 import { WorkExperienceComponent } from './_components/index';
 import { IntroduceComponent } from './_components/index';
 import { TerminalComponent } from './_components/index';
+import { ContactComponent } from './_components/index';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { TerminalComponent } from './_components/index';
         WorkExperienceComponent,
         IntroduceComponent,
         TerminalComponent,
+        ContactComponent,
     ],
     imports: [
         BrowserModule,

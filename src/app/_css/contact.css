@@ -1,0 +1,106 @@
+.contact-container {
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    border: 1px solid #dcdcda;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.contact-contents {
+    width: 100%;
+    height: calc(100% - 22px);
+    border-radius: 0px 0px 10px 10px;
+    padding: 20px 10px;
+    overflow-y: auto;
+    background: rgba(247, 223, 222, 0.1);
+}
+
+.contact-name-area {
+    float: left;
+    width: 100%;
+    height: auto;
+}
+
+.contact-my-image{
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.contact-name {
+    width: 100%;
+    height: 18px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 18px;
+    color: #2b2b2b;
+    margin-top: 7px;
+}
+
+.contact-position {
+    width: 100%;
+    height: 14px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 14px;
+    color: #5e5e5e;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.contact-address-area {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin-top: 30px;
+}
+
+.contact-address-item-area {
+    width: 235px;
+    height: 30px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.contact-address-item-area:first-child {
+    margin-top: 0px;
+}
+
+.contact-icon-wrap {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e52646;
+    position: relative;
+    float: left;
+    box-shadow: 0 5px 15px 0.4px rgba(0,0,0,.2);
+}
+
+.contact-icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.contact-address-text {
+    width: auto;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+    color: #2b2b2b;
+    float: left;
+    font-weight: 500;
+    margin-left: 10px;
+}
