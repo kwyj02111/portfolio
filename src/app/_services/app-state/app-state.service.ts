@@ -62,7 +62,6 @@ export class AppStateService {
             });
         }
 
-        console.log(this._appState.app);
         return;
     }
 

@@ -1,12 +1,23 @@
 .project-container {
-    width: 600px;
-    height: 400px;
+    width: 80%;
+    height: 70%;
     position: absolute;
     top: 100px;
     left: 50px;
     border: 1px solid #dcdcda;
     border-radius: 10px;
     background: #fcfcfa;
+}
+
+@media screen and (max-width: 768px) {
+    .project-container {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 900;
+    }
 }
 
 .project-contents {
@@ -59,6 +70,7 @@
     float: right;
     padding: 15px 10px;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .project-detail-name {

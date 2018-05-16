@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 /*service*/
 import { AppStateService } from '../../_services/index';
@@ -23,10 +23,11 @@ export class IntroduceComponent implements OnInit {
 
     constructor(
         private _appState : AppStateService,
-    ) { }
+    ) {
+        this.registerTwoWayBind();
+    }
 
     ngOnInit(){
-        this.registerTwoWayBind();
         this.onCreateBarChart();
     }
 
@@ -60,8 +61,16 @@ export class IntroduceComponent implements OnInit {
                     {'skill' : 'mysql', 'value' : 67},
                     {'skill' : 'React', 'value' : 50},
                 ],
-            }
+            },
+            'fullScreen' : false,
         }
+    }
+
+    // window resize
+    @HostListener('window:resize', ['$event']) onResize($event) {
+        $('#skillChart').empty();
+        this.onCreateBarChart();
+        return;
     }
 
     // Bar chart create

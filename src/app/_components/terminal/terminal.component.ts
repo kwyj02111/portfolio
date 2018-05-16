@@ -21,11 +21,12 @@ export class TerminalComponent implements OnInit, DoCheck {
 
     constructor(
         private _appState : AppStateService,
-    ) { }
-
-    ngOnInit() {
+    ) {
         this.registerTwoWayBind();
         this.getDate();
+    }
+
+    ngOnInit() {
     }
 
     ngDoCheck() {
@@ -81,8 +82,6 @@ export class TerminalComponent implements OnInit, DoCheck {
 
         // enter key event
         if(event.which === 13){
-
-            console.log('엔터다!!!!');
             this.getSearchResult(textElem.val());
             textElem.attr('readonly', 'readonly');
             return;
@@ -115,7 +114,9 @@ export class TerminalComponent implements OnInit, DoCheck {
         switch (keyword) {
             case 'help':
                 pushData['result'] = [
-                    { 'contents' : 'ls : Show List \ncd : Enter Folder \ncat : If you want to view the text file, type cat', 'folder' : false },
+                    { 'contents' :
+                    'ls : Show List \ncd : Enter Folder \ncat : If you want to view the text file, type cat \nexit : close terminal',
+                    'folder' : false },
                 ];
                 break;
 
@@ -137,6 +138,10 @@ export class TerminalComponent implements OnInit, DoCheck {
 
             case 'cat':
                 pushData['result'] = this.viewTextContents(originKeyword);
+                break;
+
+            case 'exit':
+                this.closeApp();
                 break;
 
             default:
@@ -176,7 +181,7 @@ export class TerminalComponent implements OnInit, DoCheck {
 
                 break;
 
-            case 'workExperience':
+            case 'workexperience':
                 if(depth === '/desktop'){
                     message = [];
                     depth += '/workExperience';
@@ -288,14 +293,14 @@ export class TerminalComponent implements OnInit, DoCheck {
 
             case 'contactaddress.txt':
                 if(depth === '/desktop'){
-                    message = [{ 'contents' : `Phone : 82 10 3131 2188 \nEmail : kwyj0211@gmail.com \n`, 'folder' : false }];
+                    message = [{ 'contents' : `Phone : +82 10 3131 2188 \nEmail : kwyj0211@gmail.com \n`, 'folder' : false }];
                 }
                 break;
 
             case 'profile.txt':
                 if(depth === '/desktop/introduce'){
                     message = [{ 'contents' :
-                        `birth : 1993.02.11 \n Phone : 82 10 3131 2188 \nEmail : kwyj0211@gmail.com \naddress: Noryangjin-dong, Dongjak-gu, Seoul`,
+                        `birth : 1993.02.11 \nPhone : +82 10 3131 2188 \nEmail : kwyj0211@gmail.com \naddress: Noryangjin-dong, Dongjak-gu, Seoul`,
                         'folder' : false
                     }];
                 }

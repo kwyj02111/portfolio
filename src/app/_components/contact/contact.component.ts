@@ -13,14 +13,15 @@ import { AppStateService } from '../../_services/index';
 })
 export class ContactComponent implements OnInit {
 
-    public _contact : any; // terminal data bind
+    public _contact : any; // contact data bind
 
     constructor(
         private _appState : AppStateService,
-    ) { }
+    ) {
+        this.registerTwoWayBind();
+    }
 
     ngOnInit() {
-        this.registerTwoWayBind();
     }
 
     registerTwoWayBind(){

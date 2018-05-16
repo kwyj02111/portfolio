@@ -16,10 +16,11 @@ export class AppComponent implements OnInit {
 
     constructor(
         private _appState : AppStateService,
-    ) { }
+    ) {
+        this.appState();
+    }
 
     ngOnInit() {
-        this.appState();
     }
 
     appState(){

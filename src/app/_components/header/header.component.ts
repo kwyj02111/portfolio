@@ -14,11 +14,11 @@ export class HeaderComponent implements OnInit {
     public _header : any;// 헤더 data bind
 
     constructor() {
+        this.registerTwoWayBind();
+        this.setClockInterval();
     }
 
     ngOnInit(){
-        this.registerTwoWayBind();
-        this.setClockInterval();
     }
 
     registerTwoWayBind(){

@@ -17,10 +17,11 @@ export class WorkExperienceComponent implements OnInit {
 
     constructor(
         private _appState : AppStateService,
-    ) { }
+    ) {
+        this.registerTwoWayBind();
+    }
 
     ngOnInit() {
-        this.registerTwoWayBind();
     }
 
     //data binding
