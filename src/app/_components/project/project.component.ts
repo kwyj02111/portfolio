@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 /*service*/
 import { AppStateService } from '../../_services/index';
 
+/*import jquery*/
+import * as $ from 'jquery';
+
 @Component({
     selector: 'project',
     templateUrl: './project.component.html',
@@ -95,4 +98,23 @@ export class ProjectComponent implements OnInit {
         return;
     }
 
+    // 창 최소화
+    MinimizeApp(){
+        $('#projectContainer').addClass('minimize');
+        return;
+    }
+
+    // 창 전체화면
+    fullScreenApp(){
+
+        let screen = this._project.fullScreen;
+
+        if(screen){
+            this._project.fullScreen = false;
+        } else {
+            this._project.fullScreen = true;
+        }
+
+        return;
+    }
 }

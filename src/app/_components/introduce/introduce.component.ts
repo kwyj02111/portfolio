@@ -158,4 +158,24 @@ export class IntroduceComponent implements OnInit {
         return;
     }
 
+    // 창 최소화
+    MinimizeApp(){
+        $('#introduceContainer').addClass('minimize');
+        return;
+    }
+
+    // 창 전체화면
+    fullScreenApp(){
+
+        let screen = this._introduce.fullScreen;
+
+        if(screen){
+            this._introduce.fullScreen = false;
+        } else {
+            this._introduce.fullScreen = true;
+        }
+
+        return;
+    }
+
 }

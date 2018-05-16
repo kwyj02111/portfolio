@@ -1,11 +1,18 @@
-<section id="workExperienceContainer" class="work-experience-container">
+<section id="workExperienceContainer" class="work-experience-container"
+    [ngClass]="_workExperience.fullScreen ? 'full-screen' : ''"
+    ngDraggable [handle]="workExperienceHandle"
+>
 
-    <div class="container-header">
+    <div class="container-header" #workExperienceHandle>
         <div class='container-header-close-btn container-header-btn pointer'
             (click)="closeApp()"
         ></div>
-        <div class='container-header-hide-btn container-header-btn pointer'></div>
-        <div class='container-header-fullscreen-btn container-header-btn pointer'></div>
+        <div class='container-header-hide-btn container-header-btn pointer'
+            (click)="MinimizeApp()"
+        ></div>
+        <div class='container-header-fullscreen-btn container-header-btn pointer'
+            (click)="fullScreenApp()"
+        ></div>
     </div>
 
     <div class="work-experience-contents">

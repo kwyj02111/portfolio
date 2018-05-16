@@ -1,11 +1,18 @@
-<section id="projectContainer" class="project-container">
+<section id="projectContainer" class="project-container"
+    [ngClass]="_project.fullScreen ? 'full-screen' : ''"
+    ngDraggable [handle]="projectHandle"
+>
 
-    <div class="container-header">
+    <div class="container-header" #projectHandle>
         <div class='container-header-close-btn container-header-btn pointer'
             (click)="closeApp()"
         ></div>
-        <div class='container-header-hide-btn container-header-btn pointer'></div>
-        <div class='container-header-fullscreen-btn container-header-btn pointer'></div>
+        <div class='container-header-hide-btn container-header-btn pointer'
+            (click)="MinimizeApp()"
+        ></div>
+        <div class='container-header-fullscreen-btn container-header-btn pointer'
+            (click)="fullScreenApp()"
+        ></div>
     </div>
 
     <div class="project-contents">

@@ -1,11 +1,18 @@
-<section id="contactContainer" class="contact-container">
+<section id="contactContainer" class="contact-container"
+    [ngClass]="_contact.fullScreen ? 'full-screen' : ''"
+    ngDraggable [handle]="contactHandle"
+>
 
-    <div class="container-header">
+    <div class="container-header" #contactHandle>
         <div class="container-header-close-btn container-header-btn pointer"
             (click)="closeApp()"
         ></div>
-        <div class="container-header-hide-btn container-header-btn pointer"></div>
-        <div class="container-header-fullscreen-btn container-header-btn pointer"></div>
+        <div class="container-header-hide-btn container-header-btn pointer"
+            (click)="MinimizeApp()"
+        ></div>
+        <div class="container-header-fullscreen-btn container-header-btn pointer"
+            (click)="fullScreenApp()"
+        ></div>
     </div>
 
     <div class="contact-contents">

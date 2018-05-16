@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 /*service*/
 import { AppStateService } from './_services/index';
 
+/*module*/
+import { AngularDraggableModule } from 'angular2-draggable';
+
 /*component*/
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './_components/index';
@@ -31,6 +34,7 @@ import { ContactComponent } from './_components/index';
     imports: [
         BrowserModule,
         FormsModule,
+        AngularDraggableModule,
     ],
     providers: [
         AppStateService,

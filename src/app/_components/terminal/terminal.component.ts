@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 /*service*/
 import { AppStateService } from '../../_services/index';
 
-/*import jquery, d3*/
+/*import jquery*/
 import * as $ from 'jquery';
 
 @Component({
@@ -372,6 +372,26 @@ export class TerminalComponent implements OnInit, DoCheck {
     // 창 끄기
     closeApp(){
         this._appState.updateAppState('terminal', 'close');
+        return;
+    }
+
+    // 창 최소화
+    MinimizeApp(){
+        $('#terminalContainer').addClass('minimize');
+        return;
+    }
+
+    // 창 전체화면
+    fullScreenApp(){
+
+        let screen = this._terminal.fullScreen;
+
+        if(screen){
+            this._terminal.fullScreen = false;
+        } else {
+            this._terminal.fullScreen = true;
+        }
+
         return;
     }
 

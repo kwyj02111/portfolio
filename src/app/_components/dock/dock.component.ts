@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 /*service*/
 import { AppStateService } from '../../_services/index';
 
+/*import jquery*/
+import * as $ from 'jquery';
+
 @Component({
     selector: 'dock',
     templateUrl: './dock.component.html',
@@ -24,6 +27,14 @@ export class DockComponent implements OnInit {
     // App open
     openApp(app : any){
         if(typeof app === 'undefined'){
+            return;
+        }
+
+        let state = this._appState.getAppState();
+
+        // 창 최소화일 경우
+        if(state.app[app]){
+            $(`#${app}Container`).removeClass('minimize');
             return;
         }
 

@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 /*service*/
 import { AppStateService } from '../../_services/index';
 
+/*import jquery*/
+import * as $ from 'jquery';
+
 @Component({
     selector: 'workExperience',
     templateUrl: './work-experience.component.html',
@@ -66,12 +69,30 @@ export class WorkExperienceComponent implements OnInit {
         return;
     }
 
-
     // 창 끄기
     closeApp(){
         this._appState.updateAppState('workExperience', 'close');
         return;
     }
 
+    // 창 최소화
+    MinimizeApp(){
+        $('#workExperienceContainer').addClass('minimize');
+        return;
+    }
+
+    // 창 전체화면
+    fullScreenApp(){
+
+        let screen = this._workExperience.fullScreen;
+
+        if(screen){
+            this._workExperience.fullScreen = false;
+        } else {
+            this._workExperience.fullScreen = true;
+        }
+
+        return;
+    }
 
 }
