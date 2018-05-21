@@ -1,5 +1,6 @@
 <section id="contactContainer" class="contact-container"
     [ngClass]="_contact.fullScreen ? 'full-screen' : ''"
+    [ngDraggable] = "!_contact.device.isMobile"
     ngDraggable [handle]="contactHandle"
 >
 

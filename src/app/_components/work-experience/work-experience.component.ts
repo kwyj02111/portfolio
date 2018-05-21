@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 
 /*service*/
 import { AppStateService } from '../../_services/index';
+import { DeviceService } from '../../_services/index';
 
 /*import jquery*/
 import * as $ from 'jquery';
@@ -17,14 +19,26 @@ import * as $ from 'jquery';
 export class WorkExperienceComponent implements OnInit {
 
     public _workExperience : any;
+    private _deviceInfoHandler; // device Info - subscribe
 
     constructor(
         private _appState : AppStateService,
+        private _device : DeviceService,
+        @Inject(DOCUMENT) private _dom: Document,
     ) {
         this.registerTwoWayBind();
     }
 
     ngOnInit() {
+        this._deviceInfoHandler = this._device.getDeviceInfoSubscribe()
+            .subscribe((r_notice) => {
+                this._workExperience.device = r_notice;
+                return;
+            });
+    }
+
+    ngOnDestroy() {
+        this._deviceInfoHandler.unsubscribe();
     }
 
     //data binding
@@ -52,7 +66,16 @@ export class WorkExperienceComponent implements OnInit {
                     },
                 ],
             },
+            'fullScreen' : false,
+            'device' : this._device.getDeviceInfo(),
         }
+    }
+
+    // window resize
+    @HostListener('window:resize', ['$event']) onResize($event) {
+        let width = this._dom.body.clientWidth;
+        this._device.updateDeviceInfo(width);
+        return;
     }
 
     selectedCompanyItem(company : any){
@@ -83,6 +106,10 @@ export class WorkExperienceComponent implements OnInit {
 
     // 창 전체화면
     fullScreenApp(){
+
+        if(this._workExperience.device.isMobile){
+            return;
+        }
 
         let screen = this._workExperience.fullScreen;
 

@@ -1,5 +1,6 @@
 <section id="projectContainer" class="project-container"
     [ngClass]="_project.fullScreen ? 'full-screen' : ''"
+    [ngDraggable] = "!_project.device.isMobile"
     ngDraggable [handle]="projectHandle"
 >
 

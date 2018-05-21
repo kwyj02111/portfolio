@@ -1,5 +1,6 @@
 <section id="introduceContainer" class="introduce-container"
     [ngClass]="_introduce.fullScreen ? 'full-screen' : ''"
+    [ngDraggable] = "!_introduce.device.isMobile"
     ngDraggable [handle]="introduceHandle"
 >
 

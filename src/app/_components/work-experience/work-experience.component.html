@@ -1,5 +1,6 @@
 <section id="workExperienceContainer" class="work-experience-container"
     [ngClass]="_workExperience.fullScreen ? 'full-screen' : ''"
+    [ngDraggable] = "!_workExperience.device.isMobile"
     ngDraggable [handle]="workExperienceHandle"
 >
 

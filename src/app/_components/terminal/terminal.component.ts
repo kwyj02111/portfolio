@@ -1,8 +1,10 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, DoCheck, OnDestroy, HostListener, Inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { DOCUMENT } from '@angular/platform-browser';
 
 /*service*/
 import { AppStateService } from '../../_services/index';
+import { DeviceService } from '../../_services/index';
 
 /*import jquery*/
 import * as $ from 'jquery';
@@ -18,22 +20,41 @@ import * as $ from 'jquery';
 export class TerminalComponent implements OnInit, DoCheck {
 
     public _terminal : any; // terminal data bind
+    private _deviceInfoHandler; // device Info - subscribe
 
     constructor(
         private _appState : AppStateService,
+        private _device : DeviceService,
+        @Inject(DOCUMENT) private _dom: Document,
     ) {
         this.registerTwoWayBind();
         this.getDate();
     }
 
     ngOnInit() {
+        this._deviceInfoHandler = this._device.getDeviceInfoSubscribe()
+            .subscribe((r_notice) => {
+                this._terminal.device = r_notice;
+                return;
+            });
     }
 
     ngDoCheck() {
-        // textarea focus
         let index = this._terminal.search.length;
+
+        // 최소화 일 경우 focus remove
+        if($('#terminalContainer').hasClass('minimize')){
+            $(`#terminalInput${index}`).blur();
+            return;
+        }
+
+        // textarea focus
         $(`#terminalInput${index}`).focus();
         return;
+    }
+
+    ngOnDestroy() {
+        this._deviceInfoHandler.unsubscribe();
     }
 
     registerTwoWayBind(){
@@ -43,8 +64,17 @@ export class TerminalComponent implements OnInit, DoCheck {
             },
             'search' : [],
             'depth' : '/desktop',
+            'fullScreen' : false,
+            'device' : this._device.getDeviceInfo(),
         };
 
+        return;
+    }
+
+    // window resize
+    @HostListener('window:resize', ['$event']) onResize($event) {
+        let width = this._dom.body.clientWidth;
+        this._device.updateDeviceInfo(width);
         return;
     }
 
@@ -83,6 +113,7 @@ export class TerminalComponent implements OnInit, DoCheck {
         // enter key event
         if(event.which === 13){
             this.getSearchResult(textElem.val());
+            $(`#terminalInput${index}`).blur();
             textElem.attr('readonly', 'readonly');
             return;
         }
@@ -371,6 +402,9 @@ export class TerminalComponent implements OnInit, DoCheck {
 
     // 창 끄기
     closeApp(){
+        let index = this._terminal.search.length;
+        $(`#terminalInput${index}`).blur();
+
         this._appState.updateAppState('terminal', 'close');
         return;
     }
@@ -383,6 +417,10 @@ export class TerminalComponent implements OnInit, DoCheck {
 
     // 창 전체화면
     fullScreenApp(){
+
+        if(this._terminal.device.isMobile){
+            return;
+        }
 
         let screen = this._terminal.fullScreen;
 

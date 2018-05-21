@@ -1,7 +1,9 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 
 /*service*/
 import { AppStateService } from '../../_services/index';
+import { DeviceService } from '../../_services/index';
 
 /*import jquery, d3*/
 import * as $ from 'jquery';
@@ -17,18 +19,31 @@ import 'd3-selection-multi';
                     '../../_css/introduce.css'
                 ],
 })
-export class IntroduceComponent implements OnInit {
+export class IntroduceComponent implements OnInit, OnDestroy {
 
     public _introduce : any;
+    private _deviceInfoHandler; // device Info - subscribe
 
     constructor(
         private _appState : AppStateService,
+        private _device : DeviceService,
+        @Inject(DOCUMENT) private _dom: Document,
     ) {
         this.registerTwoWayBind();
     }
 
     ngOnInit(){
+        this._deviceInfoHandler = this._device.getDeviceInfoSubscribe()
+            .subscribe((r_notice) => {
+                this._introduce.device = r_notice;
+                return;
+            });
+
         this.onCreateBarChart();
+    }
+
+    ngOnDestroy() {
+        this._deviceInfoHandler.unsubscribe();
     }
 
     //data binding
@@ -63,11 +78,15 @@ export class IntroduceComponent implements OnInit {
                 ],
             },
             'fullScreen' : false,
+            'device' : this._device.getDeviceInfo(),
         }
     }
 
     // window resize
     @HostListener('window:resize', ['$event']) onResize($event) {
+        let width = this._dom.body.clientWidth;
+        this._device.updateDeviceInfo(width);
+
         $('#skillChart').empty();
         this.onCreateBarChart();
         return;
@@ -166,6 +185,10 @@ export class IntroduceComponent implements OnInit {
 
     // 창 전체화면
     fullScreenApp(){
+
+        if(this._introduce.device.isMobile){
+            return;
+        }
 
         let screen = this._introduce.fullScreen;
 

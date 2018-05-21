@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 
 /*service*/
 import { AppStateService } from '../../_services/index';
+import { DeviceService } from '../../_services/index';
 
 /*import jquery*/
 import * as $ from 'jquery';
@@ -14,17 +16,29 @@ import * as $ from 'jquery';
                     '../../_css/contact.css'
                 ],
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
 
     public _contact : any; // contact data bind
+    private _deviceInfoHandler; // device Info - subscribe
 
     constructor(
         private _appState : AppStateService,
+        private _device : DeviceService,
+        @Inject(DOCUMENT) private _dom: Document,
     ) {
         this.registerTwoWayBind();
     }
 
     ngOnInit() {
+        this._deviceInfoHandler = this._device.getDeviceInfoSubscribe()
+            .subscribe((r_notice) => {
+                this._contact.device = r_notice;
+                return;
+            });
+    }
+
+    ngOnDestroy() {
+        this._deviceInfoHandler.unsubscribe();
     }
 
     registerTwoWayBind(){
@@ -35,8 +49,16 @@ export class ContactComponent implements OnInit {
                 {'title' : 'github', 'value' : 'https://github.com/kwyj02111', 'src' : '/assets/github-white-icon.svg'},
             ],
             'fullScreen' : false,
+            'device' : this._device.getDeviceInfo(),
         };
 
+        return;
+    }
+
+    // window resize
+    @HostListener('window:resize', ['$event']) onResize($event) {
+        let width = this._dom.body.clientWidth;
+        this._device.updateDeviceInfo(width);
         return;
     }
 
@@ -54,6 +76,10 @@ export class ContactComponent implements OnInit {
 
     // 창 전체화면
     fullScreenApp(){
+
+        if(this._contact.device.isMobile){
+            return;
+        }
 
         let screen = this._contact.fullScreen;
 

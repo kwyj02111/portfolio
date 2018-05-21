@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 
 /*service*/
 import { AppStateService } from '../../_services/index';
+import { DeviceService } from '../../_services/index';
 
 /*import jquery*/
 import * as $ from 'jquery';
@@ -17,14 +19,26 @@ import * as $ from 'jquery';
 export class ProjectComponent implements OnInit {
 
     public _project : any;
+    private _deviceInfoHandler; // device Info - subscribe
 
     constructor(
         private _appState : AppStateService,
+        private _device : DeviceService,
+        @Inject(DOCUMENT) private _dom: Document,
     ) {
         this.registerTwoWayBind();
     }
 
     ngOnInit(){
+        this._deviceInfoHandler = this._device.getDeviceInfoSubscribe()
+            .subscribe((r_notice) => {
+                this._project.device = r_notice;
+                return;
+            });
+    }
+
+    ngOnDestroy() {
+        this._deviceInfoHandler.unsubscribe();
     }
 
     //data binding
@@ -75,7 +89,16 @@ export class ProjectComponent implements OnInit {
                     },
                 ],
             },
+            'fullScreen' : false,
+            'device' : this._device.getDeviceInfo(),
         }
+    }
+
+    // window resize
+    @HostListener('window:resize', ['$event']) onResize($event) {
+        let width = this._dom.body.clientWidth;
+        this._device.updateDeviceInfo(width);
+        return;
     }
 
     selectedProjectItem(item : any){
@@ -106,6 +129,10 @@ export class ProjectComponent implements OnInit {
 
     // 창 전체화면
     fullScreenApp(){
+
+        if(this._project.device.isMobile){
+            return;
+        }
 
         let screen = this._project.fullScreen;
 

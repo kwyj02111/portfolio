@@ -4,9 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 /*service*/
 import { AppStateService } from './_services/index';
+import { DeviceService } from './_services/index';
 
 /*module*/
 import { AngularDraggableModule } from 'angular2-draggable';
+import { Ng2DeviceDetectorModule } from 'ng2-device-detector';
 
 /*component*/
 import { AppComponent } from './app.component';
@@ -35,9 +37,11 @@ import { ContactComponent } from './_components/index';
         BrowserModule,
         FormsModule,
         AngularDraggableModule,
+        Ng2DeviceDetectorModule.forRoot(),
     ],
     providers: [
         AppStateService,
+        DeviceService,
     ],
     bootstrap: [
         AppComponent

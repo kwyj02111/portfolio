@@ -1,5 +1,6 @@
 <section id="terminalContainer" class="terminal-container"
     [ngClass]="_terminal.fullScreen ? 'full-screen' : ''"
+    [ngDraggable] = "!_terminal.device.isMobile"
     ngDraggable [handle]="terminalHandle"
 >
 
