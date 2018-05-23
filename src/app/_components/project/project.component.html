@@ -2,6 +2,7 @@
     [ngClass]="_project.fullScreen ? 'full-screen' : ''"
     [ngDraggable] = "!_project.device.isMobile"
     ngDraggable [handle]="projectHandle"
+    [style.zIndex]="_project.zindex"
 >
 
     <div class="container-header" #projectHandle>

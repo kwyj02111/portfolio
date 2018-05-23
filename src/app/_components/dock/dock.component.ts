@@ -32,9 +32,10 @@ export class DockComponent implements OnInit {
 
         let state = this._appState.getAppState();
 
-        // 창 최소화일 경우
+        // 창이 열려있거나 최소화일 경우
         if(state.app[app]){
             $(`#${app}Container`).removeClass('minimize');
+            this._appState.updateAppState(app, 'update');
             return;
         }
 

@@ -2,10 +2,10 @@
 <section  class="background-image"></section>
 <section class="app-home-container">
     <home></home>
-    <introduce *ngIf="_mainApp.app.introduce"></introduce>
-    <workExperience *ngIf="_mainApp.app.workExperience"></workExperience>
-    <project *ngIf="_mainApp.app.project"></project>
-    <terminal *ngIf="_mainApp.app.terminal"></terminal>
-    <contact *ngIf="_mainApp.app.contact"></contact>
+    <introduce *ngIf="_mainApp.app.introduce" (click)="focusComponent('introduce')"></introduce>
+    <workExperience *ngIf="_mainApp.app.workExperience" (click)="focusComponent('workExperience')"></workExperience>
+    <project *ngIf="_mainApp.app.project" (click)="focusComponent('project')"></project>
+    <terminal *ngIf="_mainApp.app.terminal" (click)="focusComponent('terminal')"></terminal>
+    <contact *ngIf="_mainApp.app.contact" (click)="focusComponent('contact')"></contact>
 </section>
 <dock></dock>

@@ -2,6 +2,7 @@
     [ngClass]="_terminal.fullScreen ? 'full-screen' : ''"
     [ngDraggable] = "!_terminal.device.isMobile"
     ngDraggable [handle]="terminalHandle"
+    [style.zIndex]="_terminal.zindex"
 >
 
     <div class="container-header" #terminalHandle>

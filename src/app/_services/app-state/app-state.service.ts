@@ -30,6 +30,7 @@ export class AppStateService {
         };
 
         this._appState = appState;
+        this._appStateSubject.next(<any> this._appState);
         return;
     }
 
@@ -52,6 +53,23 @@ export class AppStateService {
                     this._appState.app[key] = true;
                 }
             });
+
+            this._appState.appArray.push({'component' : app});
+            this._appStateSubject.next(<any> this._appState);
+            return;
+        }
+
+        let idx = _.findIndex(this._appState.appArray, { component : app });
+
+        if(type === 'update'){
+            if(!this._appState.app[`${app}`]){
+                return;
+            }
+
+            this._appState.appArray.splice(idx, 1);
+            this._appState.appArray.push({'component' : app});
+            this._appStateSubject.next(<any> this._appState);
+            return;
         }
 
         if(type === 'close'){
@@ -60,9 +78,17 @@ export class AppStateService {
                     this._appState.app[key] = false;
                 }
             });
+
+            this._appState.appArray.splice(idx, 1);
+            this._appStateSubject.next(<any> this._appState);
+            return;
         }
 
         return;
+    }
+
+    getAppStateSubscribe() : Observable<any> {
+        return this._appStateSubject.asObservable();
     }
 
 }

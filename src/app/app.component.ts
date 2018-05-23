@@ -7,8 +7,9 @@ import { DeviceService } from './_services/index';
 /*module*/
 import { Ng2DeviceService } from 'ng2-device-detector';
 
-/*import jquery*/
+/*import jquery, underscore*/
 import * as $ from 'jquery';
+import * as _ from 'underscore';
 
 @Component({
     selector: 'app-root',
@@ -41,6 +42,20 @@ export class AppComponent implements OnInit {
     deviceInfo(){
         let deviceInfo = this.deviceService.getDeviceInfo();
         this._device.setDeviceInfo(deviceInfo);
+        return;
+    }
+
+    focusComponent(component : any){
+        if(typeof component === 'undefined'){
+            return;
+        }
+
+        let lastComponent = _.last(this._mainApp.appArray);
+        if(lastComponent.component === component){
+            return;
+        }
+
+        this._appState.updateAppState(component, 'update');
         return;
     }
 }

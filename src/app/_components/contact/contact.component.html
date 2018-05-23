@@ -2,6 +2,7 @@
     [ngClass]="_contact.fullScreen ? 'full-screen' : ''"
     [ngDraggable] = "!_contact.device.isMobile"
     ngDraggable [handle]="contactHandle"
+    [style.zIndex]="_contact.zindex"
 >
 
     <div class="container-header" #contactHandle>

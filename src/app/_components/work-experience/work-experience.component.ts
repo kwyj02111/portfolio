@@ -5,8 +5,9 @@ import { DOCUMENT } from '@angular/platform-browser';
 import { AppStateService } from '../../_services/index';
 import { DeviceService } from '../../_services/index';
 
-/*import jquery*/
+/*import jquery, underscore*/
 import * as $ from 'jquery';
+import * as _ from 'underscore';
 
 @Component({
     selector: 'workExperience',
@@ -19,6 +20,7 @@ import * as $ from 'jquery';
 export class WorkExperienceComponent implements OnInit {
 
     public _workExperience : any;
+    private _appStateHandler; // App State - subscribe
     private _deviceInfoHandler; // device Info - subscribe
 
     constructor(
@@ -27,9 +29,16 @@ export class WorkExperienceComponent implements OnInit {
         @Inject(DOCUMENT) private _dom: Document,
     ) {
         this.registerTwoWayBind();
+        this.setComponentZindex();
     }
 
     ngOnInit() {
+        this._appStateHandler = this._appState.getAppStateSubscribe()
+            .subscribe((r_notice) => {
+                this.setComponentZindex();
+                return;
+            });
+
         this._deviceInfoHandler = this._device.getDeviceInfoSubscribe()
             .subscribe((r_notice) => {
                 this._workExperience.device = r_notice;
@@ -38,6 +47,7 @@ export class WorkExperienceComponent implements OnInit {
     }
 
     ngOnDestroy() {
+        this._appStateHandler.unsubscribe();
         this._deviceInfoHandler.unsubscribe();
     }
 
@@ -68,7 +78,21 @@ export class WorkExperienceComponent implements OnInit {
             },
             'fullScreen' : false,
             'device' : this._device.getDeviceInfo(),
+            'zindex' : 0,
         }
+    }
+
+    setComponentZindex(){
+
+        let stateArray = this._appState.getAppState().appArray;
+        let idx = _.findIndex(stateArray, { component : 'workExperience' });
+
+        if(idx < 0){
+            return;
+        }
+
+        this._workExperience.zindex = idx + 1;
+        return;
     }
 
     // window resize

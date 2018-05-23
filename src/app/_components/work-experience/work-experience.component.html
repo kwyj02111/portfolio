@@ -2,6 +2,7 @@
     [ngClass]="_workExperience.fullScreen ? 'full-screen' : ''"
     [ngDraggable] = "!_workExperience.device.isMobile"
     ngDraggable [handle]="workExperienceHandle"
+    [style.zIndex]="_workExperience.zindex"
 >
 
     <div class="container-header" #workExperienceHandle>
