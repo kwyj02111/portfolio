@@ -1,0 +1,29 @@
+<section id="resumeContainer" class="resume-container"
+    [ngClass]="_resume.fullScreen ? 'full-screen' : ''"
+    [ngDraggable] = "!_resume.device.isMobile"
+    ngDraggable [handle]="resumeHandle"
+    [style.zIndex]="_resume.zindex"
+>
+
+    <div class="container-header" #resumeHandle>
+        <div class="container-header-close-btn container-header-btn pointer"
+            (click)="closeApp()"
+        ></div>
+        <div class="container-header-hide-btn container-header-btn pointer"
+            (click)="MinimizeApp()"
+        ></div>
+        <div class="container-header-fullscreen-btn container-header-btn pointer"
+            (click)="fullScreenApp()"
+        ></div>
+    </div>
+
+    <div class="resume-contents">
+        <pdf-viewer
+            class="resume-pdf"
+            src="/assets/euijung.pdf"
+            [render-text]="true"
+            [original-size]="false"
+        ></pdf-viewer>
+    </div>
+
+</section>

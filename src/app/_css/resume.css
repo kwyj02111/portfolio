@@ -1,0 +1,56 @@
+.resume-container {
+    width: 80%;
+    height: 70%;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    border: 1px solid #dcdcda;
+    border-radius: 10px;
+    background: #ffffff;
+    visibility: visible;
+    transition:width 0.3s, height 0.3s, top 0.3s, left 0.3s, visibility 0.3s;
+}
+
+.resume-container.full-screen {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    transform: translate(0px, 0px) !important;
+}
+
+.resume-container.minimize {
+    top: 100%;
+    visibility: hidden;
+    transform: translate(0px, 0px) !important;
+}
+
+@media screen and (max-width: 768px) {
+    .resume-container {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 900;
+        transform: translate(0px, 0px) !important;
+    }
+}
+
+.resume-contents {
+    width: 100%;
+    height: calc(100% - 22px);
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px 0px;
+    overflow-y: auto;
+    background: rgba(247, 223, 222, 0.1);
+}
+
+.resume-pdf {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

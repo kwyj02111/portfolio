@@ -6,3 +6,4 @@ export * from './work-experience/work-experience.component';
 export * from './project/project.component';
 export * from './terminal/terminal.component';
 export * from './contact/contact.component';
+export * from './resume/resume.component';
