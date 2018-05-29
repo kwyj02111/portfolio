@@ -91,7 +91,7 @@ export class TerminalComponent implements OnInit, DoCheck {
             return;
         }
 
-        this._terminal.zindex = idx + 1;
+        this._terminal.zindex = idx + 101;
         return;
     }
 

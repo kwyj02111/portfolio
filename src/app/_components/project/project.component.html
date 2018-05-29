@@ -74,8 +74,9 @@
                     Detail
                 </div>
 
-                <div class="project-detail-value-text">
-                    {{_project.elem.selected.content}}
+                <div class="project-detail-value-text"
+                    [innerText]="_project.elem.selected.content !== undefined ? _project.elem.selected.content : ''"
+                >
                 </div>
             </div>
         </div>

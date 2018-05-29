@@ -101,7 +101,7 @@ export class IntroduceComponent implements OnInit, OnDestroy {
             return;
         }
 
-        this._introduce.zindex = idx + 1;
+        this._introduce.zindex = idx + 101;
         return;
     }
 

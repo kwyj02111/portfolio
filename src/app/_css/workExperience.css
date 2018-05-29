@@ -148,6 +148,8 @@
     text-align: left;
     color: #2b2b2b;
     line-height: 1.8;
+    word-break: break-all;
+    white-space: pre-wrap;
 }
 
 .work-experience-route-area {

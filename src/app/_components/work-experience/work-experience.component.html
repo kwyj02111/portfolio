@@ -78,8 +78,9 @@
                             Detail
                         </div>
 
-                        <div class="work-experience-detail-value-text">
-                            {{_workExperience.elem.selected.content}}
+                        <div class="work-experience-detail-value-text"
+                            [innerText]="_workExperience.elem.selected.content !== undefined ? _workExperience.elem.selected.content : ''"
+                        >
                         </div>
                     </div>
                 </div>

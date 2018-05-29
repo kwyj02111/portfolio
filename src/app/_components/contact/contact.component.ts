@@ -75,7 +75,7 @@ export class ContactComponent implements OnInit, OnDestroy {
             return;
         }
 
-        this._contact.zindex = idx + 1;
+        this._contact.zindex = idx + 101;
         return;
     }
 
