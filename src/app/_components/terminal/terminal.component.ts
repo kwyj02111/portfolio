@@ -170,7 +170,7 @@ export class TerminalComponent implements OnInit, DoCheck {
             case 'help':
                 pushData['result'] = [
                     { 'contents' :
-                    'ls : Show List \ncd : Enter Folder \ncat : If you want to view the text file, type cat \nexit : close terminal',
+                    'ls \t\t Show List \ncd \t\t Enter Folder \ncat \t\t If you want to view the text file, type cat\npwd \t Print working directory\nexit \t\t Close terminal',
                     'folder' : false },
                 ];
                 break;
@@ -294,7 +294,6 @@ export class TerminalComponent implements OnInit, DoCheck {
                     { 'contents' : 'workExperience', 'folder' : true },
                     { 'contents' : 'project', 'folder' : true },
                     { 'contents' : 'terminal', 'folder' : false },
-                    { 'contents' : 'resume.txt', 'folder' : false },
                     { 'contents' : 'contactAddress.txt', 'folder' : false },
                 ];
                 break;
@@ -316,8 +315,9 @@ export class TerminalComponent implements OnInit, DoCheck {
             case '/desktop/project':
                 list = [
                     { 'contents' : 'symflow.txt', 'folder' : false },
-                    { 'contents' : 'kreditjobWeb.txt', 'folder' : false },
-                    { 'contents' : 'kreditjobApp.txt', 'folder' : false },
+                    { 'contents' : 'kreditjob.txt', 'folder' : false },
+                    { 'contents' : 'kreditjob_android.txt', 'folder' : false },
+                    { 'contents' : 'kreditjob_iOS.txt', 'folder' : false },
                     { 'contents' : 'camTank.txt', 'folder' : false },
                 ];
                 break;
@@ -340,11 +340,6 @@ export class TerminalComponent implements OnInit, DoCheck {
         let depth = this._terminal.depth;
 
         switch (file) {
-            case 'resume.txt':
-                if(depth === '/desktop'){
-                    message = [{ 'contents' : `resume\ntext\n`, 'folder' : false }];
-                }
-                break;
 
             case 'contactaddress.txt':
                 if(depth === '/desktop'){
@@ -369,37 +364,43 @@ export class TerminalComponent implements OnInit, DoCheck {
 
             case 'itnbasic.txt':
                 if(depth === '/desktop/workExperience'){
-                    message = [{ 'contents' : `itnbasic`, 'folder' : false }];
+                    message = [{ 'contents' : `Date : 2017.12 - 2018.03\nPosition : Front-end Developer`, 'folder' : false }];
                 }
                 break;
 
             case 'kreditdata.txt':
                 if(depth === '/desktop/workExperience'){
-                    message = [{ 'contents' : `kreditdata`, 'folder' : false }];
+                    message = [{ 'contents' : `Date : 2016.07 - 2017.10\nPosition : Front-end & Back-end & App Developer`, 'folder' : false }];
                 }
                 break;
 
             case 'symflow.txt':
                 if(depth === '/desktop/project'){
-                    message = [{ 'contents' : `symflow`, 'folder' : false }];
+                    message = [{ 'contents' : `Date : 2017.12 - 2018.03\nPosition : Front-end Developer\nDev Environment : Angular (4.x), jQuery, Node.js, Docker, MYSQL, Laravel`, 'folder' : false }];
                 }
                 break;
 
-            case 'kreditjobweb.txt':
+            case 'kreditjob.txt':
                 if(depth === '/desktop/project'){
-                    message = [{ 'contents' : `kreditjobweb`, 'folder' : false }];
+                    message = [{ 'contents' : `Date : 2016.09 - 2017.10\nPosition : Front-end & Back-end Developer\nDev Environment : Node.js, Apache, jQuery, D3.js(3.x), gulp, MYSQL, CentOS 6.8, Solr, ESLint, Mocha, Selenium WebDriver`, 'folder' : false }];
                 }
                 break;
 
-            case 'kreditjobapp.txt':
+            case 'kreditjob_ios.txt':
                 if(depth === '/desktop/project'){
-                    message = [{ 'contents' : `kreditjobapp`, 'folder' : false }];
+                    message = [{ 'contents' : `Date : 2016.08 - 2017.09\nPosition : App Developer\nDev Environment : Swift, Xcode`, 'folder' : false }];
+                }
+                break;
+
+            case 'kreditjob_android.txt':
+                if(depth === '/desktop/project'){
+                    message = [{ 'contents' : `Date : 2016.07 - 2017.08\nPosition : App Developer\nDev Environment : Java, Android Developer Tools (Android Studio + Android SDK)`, 'folder' : false }];
                 }
                 break;
 
             case 'camtank.txt':
                 if(depth === '/desktop/project'){
-                    message = [{ 'contents' : `camtank`, 'folder' : false }];
+                    message = [{ 'contents' : `Date : 2016.05 - 2016.05\nPosition : Developer\nDev Environment : Arduino IDE, Raspberry Pi2, C, Java, Android Developer Tools (Eclipse + Android SDK)`, 'folder' : false }];
                 }
                 break;
 
