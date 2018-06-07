@@ -314,10 +314,11 @@ export class TerminalComponent implements OnInit, DoCheck {
 
             case '/desktop/project':
                 list = [
+                    { 'contents' : 'portfolio.txt', 'folder' : false },
                     { 'contents' : 'symflow.txt', 'folder' : false },
                     { 'contents' : 'kreditjob.txt', 'folder' : false },
-                    { 'contents' : 'kreditjob_android.txt', 'folder' : false },
-                    { 'contents' : 'kreditjob_iOS.txt', 'folder' : false },
+                    { 'contents' : 'npsDataProject.txt', 'folder' : false },
+                    { 'contents' : 'kreditjobApp.txt', 'folder' : false },
                     { 'contents' : 'camTank.txt', 'folder' : false },
                 ];
                 break;
@@ -374,27 +375,33 @@ export class TerminalComponent implements OnInit, DoCheck {
                 }
                 break;
 
+            case 'portfolio.txt':
+                if(depth === '/desktop/project'){
+                    message = [{ 'contents' : `Date : 2018.04 - 2018.05\nPosition : Front-end Developer\nDev Environment : Angular (5.x), jQuery, D3.js (4.x), surge`, 'folder' : false }];
+                }
+                break;
+
             case 'symflow.txt':
                 if(depth === '/desktop/project'){
-                    message = [{ 'contents' : `Date : 2017.12 - 2018.03\nPosition : Front-end Developer\nDev Environment : Angular (4.x), jQuery, Node.js, Docker, MYSQL, Laravel`, 'folder' : false }];
+                    message = [{ 'contents' : `Date : 2017.12 - 2018.03\nPosition : Front-end Developer\nDev Environment : Angular (4.x), jQuery, Node.js, Socket.io, Docker, MariaDB, PHP(7.x)-Laravel, redis , Python, Linux, AWS`, 'folder' : false }];
                 }
                 break;
 
             case 'kreditjob.txt':
                 if(depth === '/desktop/project'){
-                    message = [{ 'contents' : `Date : 2016.09 - 2017.10\nPosition : Front-end & Back-end Developer\nDev Environment : Node.js, Apache, jQuery, D3.js(3.x), gulp, MYSQL, CentOS 6.8, Solr, ESLint, Mocha, Selenium WebDriver`, 'folder' : false }];
+                    message = [{ 'contents' : `Date : 2016.09 - 2017.10\nPosition : Front-end & Back-end Developer\nDev Environment : CentOS 6.8, MYSQL, Node.js, Express, Apache, jQuery, D3.js(3.x), Solr, ESLint, Mocha, Selenium WebDriver`, 'folder' : false }];
                 }
                 break;
 
-            case 'kreditjob_ios.txt':
+            case 'npsdataproject.txt':
                 if(depth === '/desktop/project'){
-                    message = [{ 'contents' : `Date : 2016.08 - 2017.09\nPosition : App Developer\nDev Environment : Swift, Xcode`, 'folder' : false }];
+                    message = [{ 'contents' : `Date : 2017.07 - 2017.10\nPosition : Front-end & Back-end Developer\nDev Environment : CentOS 6.8, MYSQL, Node.js, React(15.x), Redux(3.x), jQuery, D3.js (4.x)`, 'folder' : false }];
                 }
                 break;
 
-            case 'kreditjob_android.txt':
+            case 'kreditjobapp.txt':
                 if(depth === '/desktop/project'){
-                    message = [{ 'contents' : `Date : 2016.07 - 2017.08\nPosition : App Developer\nDev Environment : Java, Android Developer Tools (Android Studio + Android SDK)`, 'folder' : false }];
+                    message = [{ 'contents' : `Date : 2016.07 - 2017.09\nPosition : App Developer\nDev Environment : Swift, Xcode / Java, Android Developer Tools (Android Studio + Android SDK)`, 'folder' : false }];
                 }
                 break;
 
