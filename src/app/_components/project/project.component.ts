@@ -100,7 +100,7 @@ export class ProjectComponent implements OnInit {
                     {
                         'id' : '2',
                         'subject' : 'KreditJob App (Android, iOS)',
-                        'date' : '2016.07 - 2017.09',
+                        'date' : '2016.07 - 2016.09',
                         'position' : 'App Developer',
                         'language' : 'Swift, Xcode / Java, Android Developer Tools (Android Studio + Android SDK)',
                         'content' : '크레딧잡 앱은 크레딧잡 서비스를 웹뷰로 띄워 보여주는 방식을 사용하였습니다.\niOS 앱은 Xcode에서 Swift를 이용해 개발되었으며, iOS 9.0 이상의 버전부터 사용이 가능했습니다. Android 앱은 Android Studio를 이용하여 작업하였으며, Android 4.x (Ice cream sandwich) 이상의 버전부터 사용이 가능했습니다.',

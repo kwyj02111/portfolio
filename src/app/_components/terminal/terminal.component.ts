@@ -377,7 +377,7 @@ export class TerminalComponent implements OnInit, DoCheck {
 
             case 'portfolio.txt':
                 if(depth === '/desktop/project'){
-                    message = [{ 'contents' : `Date : 2018.04 - 2018.05\nPosition : Front-end Developer\nDev Environment : Angular (5.x), jQuery, D3.js (4.x), surge`, 'folder' : false }];
+                    message = [{ 'contents' : `Date : 2018.04 - 2018.06\nPosition : Front-end Developer\nDev Environment : Angular (5.x), jQuery, D3.js (4.x), surge`, 'folder' : false }];
                 }
                 break;
 
@@ -401,7 +401,7 @@ export class TerminalComponent implements OnInit, DoCheck {
 
             case 'kreditjobapp.txt':
                 if(depth === '/desktop/project'){
-                    message = [{ 'contents' : `Date : 2016.07 - 2017.09\nPosition : App Developer\nDev Environment : Swift, Xcode / Java, Android Developer Tools (Android Studio + Android SDK)`, 'folder' : false }];
+                    message = [{ 'contents' : `Date : 2016.07 - 2016.09\nPosition : App Developer\nDev Environment : Swift, Xcode / Java, Android Developer Tools (Android Studio + Android SDK)`, 'folder' : false }];
                 }
                 break;
 

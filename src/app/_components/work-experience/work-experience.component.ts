@@ -64,7 +64,7 @@ export class WorkExperienceComponent implements OnInit {
                         'date' : '2017.12 - 2018.03',
                         'position' : 'Front-end Developer',
                         'location' : 'Yeokgok (Bucheon-si, Gyeonggi-do)',
-                        'content' : '- Angular(4.x)를 이용해 심플로우 서비스 모바일 웹 및 반응형 웹 제작\n- Node 소켓 통신을 이용해 실시간 웹 서비스 구현\n- TTA 정보통신 시험 규격에 맞도록 Front-end 개발',
+                        'content' : '- Angular(4.x)를 이용해 심플로우 서비스 모바일 웹 및 반응형 웹 제작\n- Node socket.io 통신을 이용해 실시간 웹 서비스 구현\n- TTA 정보통신 시험 규격에 맞도록 Front-end 개발',
                     },
                     {
                         'id' : '1',
